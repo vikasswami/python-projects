@@ -1,9 +1,11 @@
 FROM python:3.8
 
-WORKDIR fastapi-app
+WORKDIR /fastapi-app
 
-ADD ./app ./
+COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-CMD ["python3", "./app/main.py"
+COPY ./app ./app
+
+CMD ["python", "./app/main.py"]
